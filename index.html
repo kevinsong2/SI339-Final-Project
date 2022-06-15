@@ -1,235 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 
-<html lang="en">
+<html>
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
+<title>HTML Practice Table</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-    <title>Getting Started with Chart JS with www.chartjs3.com</title>
+<!-- Latest compiled and minified CSS -->
 
-    <style>
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.css">
 
-      * {
+<!-- Latest compiled and minified JavaScript -->
 
-        margin: 0;
+<script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
 
-        padding: 0;
+<!-- Latest compiled and minified Locales -->
 
-        font-family: sans-serif;
+<script src="https://unpkg.com/bootstrap-table@1.20.2/dist/locale/bootstrap-table-zh-CN.min.js"></script>
 
-      }
+<!-- Bootstrap core CSS -->
 
-      .chartMenu {
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-        width: 100vw;
+<!--JavaScript Bundle with Popper-->
 
-        height: 40px;
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
-        background: #1A1A1A;
+<body>
 
-        color: rgba(255, 26, 104, 1);
+<div class="container">
 
-      }
+<h4 class = "text-center">Scrum Status</h4>
 
-      .chartMenu p {
+<!--data-toggle = includes classes table-hover, table-border, etc., data-search allows
 
-        padding: 10px;
+for search bar, data-pagination allows for pages-->
 
-        font-size: 20px;
+<table data-toggle= "table" data-url= "IntegrityPracticeData.json" data-search = "true" data-pagination="true" data-show-columns= "true">
 
-      }
+<thead><!--table header content tag-->
 
-      .chartCard {
+<tr><!--table row-->
 
-        width: 100vw;
+<th data-field= "Topic">Topic</th>
 
-        height: calc(100vh - 40px);
+<th data-field= "Title">Title</th>
 
-        background: rgba(255, 26, 104, 0.2);
+<th data-field= "State">State</th>
 
-        display: flex;
+<th data-field= "Structure">Structure</th>
 
-        align-items: center;
+<th data-field= "Topic">Topic</th>
 
-        justify-content: center;
+<th data-field= "ID">ID</th>
 
-      }
+</tr>
 
-      .chartBox {
-
-        width: 700px;
-
-        padding: 20px;
-
-        border-radius: 20px;
-
-        border: solid 3px rgba(255, 26, 104, 1);
-
-        background: white;
-
-      }
-
-    </style>
-
-  </head>
-
-  <body>
-
-    <div class="chartMenu">
-
-      <p>WWW.CHARTJS3.COM (Chart JS 3.8.0)</p>
-
-    </div>
-
-    <div class="chartCard">
-
-      <div class="chartBox">
-
-        <canvas id="myChart"></canvas>
-
-                                <button onclick= "fetchData()">Fetch Now</button>
-
-      </div>
-
-    </div>
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script>
-
-                //fetch block
-
-                async function fetchData(){
-
-                console.log("hello world");
-
-                const url = "https://raw.githubusercontent.com/kevinsong2/kevinsong2.github.io/main/IntegrityPracticeData.json";
-
-                const response = await fetch(url);
-
-                //wait until request is compelted
-
-                const datapoints = await response.json();
-
-                console.log(datapoints);
-
-                return datapoints;
-
-                };
-
-                fetchData().then(datapoints => {
-
-                const month = datapoints.financialreport[0].financials.map(function(index){
-
-                return index.date;
-
-                })
-
-                console.log(month);
-
-                });
-
-               
-
-    // setup
-
-    const data = {
-
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-
-      datasets: [{
-
-        label: 'Weekly Sales',
-
-        data: [18, 12, 6, 9, 12, 3, 9],
-
-        backgroundColor: [
-
-          'rgba(255, 26, 104, 0.2)',
-
-          'rgba(54, 162, 235, 0.2)',
-
-          'rgba(255, 206, 86, 0.2)',
-
-          'rgba(75, 192, 192, 0.2)',
-
-          'rgba(153, 102, 255, 0.2)',
-
-          'rgba(255, 159, 64, 0.2)',
-
-          'rgba(0, 0, 0, 0.2)'
-
-        ],
-
-        borderColor: [
-
-          'rgba(255, 26, 104, 1)',
-
-          'rgba(54, 162, 235, 1)',
-
-          'rgba(255, 206, 86, 1)',
-
-          'rgba(75, 192, 192, 1)',
-
-          'rgba(153, 102, 255, 1)',
-
-          'rgba(255, 159, 64, 1)',
-
-          'rgba(0, 0, 0, 1)'
-
-        ],
-
-        borderWidth: 1
-
-      }]
-
-    };
+</thead>
 
  
 
-    // config
+</table>
 
-    const config = {
+</div>
 
-      type: 'bar',
-
-      data,
-
-      options: {
-
-        scales: {
-
-          y: {
-
-            beginAtZero: true
-
-          }
-
-        }
-
-      }
-
-    };
+</body>
 
  
 
-    // render init block
-
-    const myChart = new Chart(
-
-      document.getElementById('myChart'),
-
-      config
-
-    );
-
-    </script>
+ 
 
  
 
-  </body>
+</head>
+
+ 
 
 </html>
