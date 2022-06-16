@@ -4,31 +4,27 @@
 
 <head>
 
-<title>HTML Practice Table</title>
+<meta charset="utf-8">
+
+<title>Scrum Matrix</title>
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"rel="stylesheet">
+
+<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel= "stylesheet">
+
+<link href="assets/bootstrap-table.min.css" rel="stylesheet"/>
 
 </head>
 
-<!-- Latest compiled and minified CSS -->
-
-<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.css">
-
-<!-- Latest compiled and minified JavaScript -->
-
-<script src="https://unpkg.com/bootstrap-table@1.20.2/dist/bootstrap-table.min.js"></script>
-
-<!-- Latest compiled and minified Locales -->
-
-<script src="https://unpkg.com/bootstrap-table@1.20.2/dist/locale/bootstrap-table-zh-CN.min.js"></script>
-
-<!-- Bootstrap core CSS -->
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
-<!--JavaScript Bundle with Popper-->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-
 <body>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <script src=" https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+
+    <script src = "assets/bootstrap-table.min.js"></script>
 
 <div class="container">
 
@@ -38,27 +34,41 @@
 
 for search bar, data-pagination allows for pages-->
 
-<table data-toggle= "table" data-url= "https://raw.githubusercontent.com/kevinsong2/kevinsong2.github.io/main/IntegrityPracticeData.json" data-search = "true" data-pagination="true" data-show-columns= "true">
+<table
+
+data-toggle= "table"
+
+data-url= "IntegrityPracticeData.json"
+
+data-search = "true"
+
+data-pagination="true"
+
+data-show-columns= "true">
 
 <thead><!--table header content tag-->
 
 <tr><!--table row-->
 
-<th data-field= "Topic">Topic</th>
+<th data-field= "Topic" data-sortable="true">Topic</th>
 
-<th data-field= "Title">Title</th>
+<th data-field= "Title" data-sortable="true">Title</th>
 
-<th data-field= "State">State</th>
+<th data-field= "State" data-sortable="true">State</th>
 
-<th data-field= "Structure">Structure</th>
+<th data-field= "Structure" data-sortable="true">Structure</th>
 
-<th data-field= "Topic">Topic</th>
+<th data-field= "Topic"data-sortable="true">Topic</th>
 
-<th data-field= "ID">ID</th>
+<th data-field= "ID" data-sortable="true">ID</th>
 
 </tr>
 
 </thead>
+
+ 
+
+ 
 
  
 
@@ -74,7 +84,15 @@ for search bar, data-pagination allows for pages-->
 
  
 
+ 
+
+ 
+
 </head>
+
+ 
+
+ 
 
  
 
