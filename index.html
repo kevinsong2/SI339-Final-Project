@@ -1,66 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html>
+<html lang="en">
 
-<head>
+  <head>
 
-<meta charset="utf-8">
+    <meta charset="utf-8">
 
-	<title>Scrum Matrix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" href="css/bootstrap.min.css>
+    <title>Getting Started with Chart JS with www.chartjs3.com</title>
 
-	<link rel= "stylesheet" href="css/bootstrap-grid.min.css>
+    <style>
 
-</head>
+      * {
 
-<body>
+        margin: 0;
 
-    <script src="js/jQuery-3.1.1.min.js"></script>
+        padding: 0;
 
-    <script src="js/bootstrap.min.js"></script>
+        font-family: sans-serif;
 
-    <script src="js/bootstrap-table.min.js"></script> 
+      }
 
-<div class="container">
+      .chartMenu {
 
-<h4 class = "text-center">Scrum Status</h4>
+        width: 100vw;
 
-<!--data-toggle = includes classes table-hover, table-border, etc., data-search allows
+        height: 40px;
 
-for search bar, data-pagination allows for pages-->
+        background: #1A1A1A;
 
-<table data-toggle= "table" data-url= "IntegrityPracticeData.json" data-search ="true" data-pagination="true" data-show-columns="true">
+        color: rgba(255, 26, 104, 1);
 
-<thead><!--table header content tag-->
+      }
 
-	<tr><!--table row-->
+      .chartMenu p {
 
-		<th data-field= "Topic" data-sortable="true">Topic</th>
+        padding: 10px;
 
-		<th data-field= "Title" data-sortable="true">Title</th>
+        font-size: 20px;
 
-		<th data-field= "State" data-sortable="true">State</th>
+      }
 
-		<th data-field= "Structure" data-sortable="true">Structure</th>
+      .chartCard {
 
-		<th data-field= "Topic"data-sortable="true">Topic</th>
+        width: 100vw;
 
-		<th data-field= "ID" data-sortable="true">ID</th>
+        height: calc(100vh - 40px);
 
-	</tr>
+        background: rgba(255, 26, 104, 0.2);
 
-</thead>
+        display: flex;
 
-</table>
+        align-items: center;
 
-</div>
+        justify-content: center;
 
-</body>
+      }
+
+      .chartBox {
+
+        width: 700px;
+
+        padding: 20px;
+
+        border-radius: 20px;
+
+        border: solid 3px rgba(255, 26, 104, 1);
+
+        background: white;
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="chartMenu">
+
+      <p>WWW.CHARTJS3.COM (Chart JS 3.8.0)</p>
+
+    </div>
+
+    <div class="chartCard">
+
+      <div class="chartBox">
+
+        <canvas id="myChart"></canvas>
+
+                                <button onclick= "fetchData()">Fetch Now</button>
+
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+
+                //fetch block
+
+                async function fetchData(){
+
+                console.log("hello world");
+
+                const url = " http://integrity.yna.yazaki.net:7001/SIP/Scripts/PracticeData.json";
+
+                const response = await fetch(url);
+
+                //wait until request is compelted
+
+                const datapoints = await response.json();
+
+                console.log(datapoints);
+
+                return datapoints;
+
+                };
+
+                fetchData().then(datapoints => {
+
+                const month = datapoints.financialreport[0].financials.map(function(index){
+
+                return index.date;
+
+                })
+
+                console.log(month);
+
+                });
+
+               
+
+    // setup
+
+    const data = {
+
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+
+      datasets: [{
+
+        label: 'Weekly Sales',
+
+        data: [18, 12, 6, 9, 12, 3, 9],
+
+        backgroundColor: [
+
+          'rgba(255, 26, 104, 0.2)',
+
+          'rgba(54, 162, 235, 0.2)',
+
+          'rgba(255, 206, 86, 0.2)',
+
+          'rgba(75, 192, 192, 0.2)',
+
+          'rgba(153, 102, 255, 0.2)',
+
+          'rgba(255, 159, 64, 0.2)',
+
+          'rgba(0, 0, 0, 0.2)'
+
+        ],
+
+        borderColor: [
+
+          'rgba(255, 26, 104, 1)',
+
+          'rgba(54, 162, 235, 1)',
+
+          'rgba(255, 206, 86, 1)',
+
+          'rgba(75, 192, 192, 1)',
+
+          'rgba(153, 102, 255, 1)',
+
+          'rgba(255, 159, 64, 1)',
+
+          'rgba(0, 0, 0, 1)'
+
+        ],
+
+        borderWidth: 1
+
+      }]
+
+    };
+
  
 
- 
+    // config
+
+    const config = {
+
+      type: 'bar',
+
+      data,
+
+      options: {
+
+        scales: {
+
+          y: {
+
+            beginAtZero: true
+
+          }
+
+        }
+
+      }
+
+    };
 
  
+
+    // render init block
+
+    const myChart = new Chart(
+
+      document.getElementById('myChart'),
+
+      config
+
+    );
+
+    </script>
+
+ 
+
+  </body>
 
 </html>
