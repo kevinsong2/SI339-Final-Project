@@ -1,0 +1,105 @@
+a.skip{
+    left: 0;
+    padding: 6px;
+    position: absolute;
+    top: -40px;
+    -webkit-transition: top 1s ease-out;
+    transition: top 1s ease-out;
+    z-index: 1;
+}
+
+a.skip:focus{
+    top:20px;
+    color: black;
+    text-decoration-style: solid;
+}
+
+body {
+    background-image: url("../images/background.jpeg");
+}
+
+a[href="about.html"]:visited{
+    color: red;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a[href="work.html"], a[href="home.html"]{
+    text-decoration: none;
+}
+
+a:hover, a:focus{
+    color: pink;
+    text-decoration: underline;
+}
+
+h2{
+    font-weight: bold;
+    font-size: 3em;
+    text-align: center;
+    padding: 30px;
+}
+
+nav li{
+    padding: 10px;
+    display: block;
+    border: 3px solid white;
+    border-radius: 20px;
+    margin: 30px;
+    text-align: center;
+}
+
+nav{
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+p{
+    text-align: left;
+    margin-left: 25px;
+}
+
+img{
+    height: 175px;
+    width: auto;
+    padding: 10px;
+    border: 3px solid white;
+    border-radius: 20px;
+    margin: 25px;
+}
+
+img:hover, img:focus{
+    height: 300px;
+    width: auto;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto;
+}
+
+footer {
+    margin-left: 15px;
+    margin-bottom: 30px;
+}
+
+@media screen and (min-width: 650px) {
+    nav li{
+        display: inline-block;
+    }
+
+    .grid{
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    nav li{
+        display: inline-block;
+    }
+
+    .grid{
+        grid-template-columns: auto auto auto;
+    }
+}
